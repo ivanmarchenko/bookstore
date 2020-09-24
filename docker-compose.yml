@@ -4,6 +4,10 @@ services:
     web:
         build: .
         command: python /code/manage.py runserver 0.0.0.0:8000
+        # https://medium.com/faun/set-current-host-user-for-docker-container-4e521cef9ffc
+        # export UID=$(id -u)
+        # export GID=$(id -g
+        user: $UID:$GID
         volumes:
             - .:/code
         ports:
