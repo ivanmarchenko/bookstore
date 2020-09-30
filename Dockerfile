@@ -1,3 +1,6 @@
+# RUN adduser -D dockuser
+# USER dockuser
+
 # base image
 FROM python:3.8-slim
 
