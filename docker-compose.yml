@@ -7,7 +7,7 @@ services:
         # https://medium.com/faun/set-current-host-user-for-docker-container-4e521cef9ffc
         # export UID=$(id -u)
         # export GID=$(id -g
-        user: $UID:$GID
+        # user: $UID:$GID
         volumes:
             - .:/code
         ports:
@@ -18,8 +18,9 @@ services:
         image: postgres:11
         environment: 
             - POSTGRES_PASSWORD=postgres
+            - POSTGRES_HOST_AUTH_METHOD=trust
         volumes:
-            - postgres_data:/var/lib/postgres/data/
+            - postgres_data:/var/lib/postgresql/data/
 
 volumes: 
     postgres_data:
