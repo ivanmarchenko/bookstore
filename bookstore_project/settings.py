@@ -158,8 +158,6 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 )
-# обход отравки писем от allauth через консоль
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 ACCOUNT_SESSION_REMEMBER = False
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
 ACCOUNT_USERNAME_REQUIRED = False
@@ -167,3 +165,21 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
+DEFAULT_FROM_EMAIL = 'server.manypost@yandex.ru'
+# обход отравки писем от allauth через консоль
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+# параметры SMTP
+# http://michael-borisov.com/2014/10/09/yandex-smtp-and-django/
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_HOST_USER = 'server.manypost@yandex.ru'
+EMAIL_HOST_PASSWORD = '3ref32fh'
+EMAIL_PORT = '587'
+EMAIL_USE_TLS = True
+# EMAIL_HOST = 'smtp.yandex.ru'
+# EMAIL_HOST_USER = 'username@domain.ru'
+# EMAIL_HOST_PASSWORD = 'password'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
