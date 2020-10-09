@@ -7,7 +7,7 @@ services:
         # https://medium.com/faun/set-current-host-user-for-docker-container-4e521cef9ffc
         # export UID=$(id -u)
         # export GID=$(id -g
-        user: $UID:$GID
+        # user: $UID:$GID
         environment: 
             - SECRET_KEY=k!fng(h=p&b9=!f^u)%_x6mkpve5=)tx^f_h6sg=-9jsdhf)q3
             - DEBUG=1
