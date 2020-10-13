@@ -9,16 +9,16 @@ services:
         # export GID=$(id -g
         # user: $UID:$GID
         environment: 
-            - ENVIRONMENT=development
+            - ENVIRONMENT=production
             - SECRET_KEY=k!fng(h=p&b9=!f^u)%_x6mkpve5=)tx^f_h6sg=-9jsdhf)q3
-            - DEBUG=1
+            - DEBUG=0
             - STRIPE_TEST_PUBLISHABLE_KEY=pk_test_51HbOSwKZgHoYPUqeLbsACYPmo6KkgWC1GID9Vu6XWt2JHRMq0ljKYmXkYqKB0qnKVUZLMC3IcaF7ZjkLtkBWL7CT00ZfpPqqHm 
             - STRIPE_TEST_SECRET_KEY=sk_test_51HbOSwKZgHoYPUqeAIuJrQcXyzVhrxAoBqb3R63fBKqkuIuL4p6l40X4keyWsQpDporc6hlj8zVQYC6ysjloFid400Q1rdDRMa
  
             # - "DJANGO_DEBUG=True"
             # - "DJANGO_SECRET_KEY=k!fng(h=p&b9=!f^u)%_x6mkpve5=)tx^f_h6sg=-9jsdhf)q3"
-        volumes:
-            - .:/code
+        # volumes:
+        #     - .:/code
         ports:
             - 8000:8000
         depends_on: 
@@ -29,9 +29,9 @@ services:
             # без указания пороля не стартует DB
             - POSTGRES_PASSWORD=postgres
             - POSTGRES_HOST_AUTH_METHOD=trust
-        volumes:
-            - postgres_data:/var/lib/postgresql/data/
+        # volumes:
+        #     - postgres_data:/var/lib/postgresql/data/
 
 # подключаем том для Postgresql
-volumes: 
-    postgres_data:
+# volumes: 
+#     postgres_data:
